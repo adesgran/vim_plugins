@@ -1,14 +1,14 @@
 function! s:generate_main()
-	execute "normal! i#include <stdio.h>\n"
-	execute "normal! oint\tmain(int ac, char **av)"
+	execute "normal! iint\tmain(int ac, char **av)"
 	execute "normal! o{"
-	execute "normal! oif (ac < 1)"
-	execute "normal! oreturn (1);\n"
-	execute "normal! oprintf(\"Hello World\");\n"
+	execute "normal! o(void)ac;"
 	execute "normal! o(void)av;"
 	execute "normal! oreturn (0);"
 	execute "normal! o}"
 endfunction
+
+command! Generatemain call s:generate_main ()
+map <F2> :Generatemain<CR>
 
 augroup CFiles
 	autocmd!
