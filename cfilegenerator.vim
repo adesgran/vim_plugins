@@ -21,7 +21,6 @@ endfunction
 function! s:generate_c()
 	let hfile = get(readdir('.', {n -> n =~ '.h$'}), 0) 
 	execute "normal! i#include <" . hfile . ">"
-	execute "normal! iTest"
 endfunction
 
 command! Generatemain call s:generate_main ()
