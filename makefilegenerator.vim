@@ -14,7 +14,7 @@ function! s:generate_makefile()
 	execute "normal! o\t${CC} ${C_FLAGS} ${INCLUDES} -c $< -o ${<:.c=.o}\n"
 	execute "normal! oall: ${LIBFT} ${NAME}\n"
 	execute "normal! o${LIBFT}:"
-	execute "normal! oif [ ! -d \"./libft\" ]; then git clone ${LIBFT_REPO} libft; fi"
+	execute "normal! o\tif [ ! -d \"./libft\" ]; then git clone ${LIBFT_REPO} libft; fi"
 	execute "normal! omake -C libft\n"
 	execute "normal! o${NAME}: {O_FILES}"
 	execute "normal! o\t${CC} ${O_FILES} ${LIBFT_INC} -o ${NAME}\n"
@@ -26,5 +26,4 @@ function! s:generate_makefile()
 	execute "normal! o\tmake fclean -C ${LIBFT_DIR}\n"
 	execute "normal! ore: fclean all"
 endfunction
-
 autocmd BufNewFile Makefile call <SID>generate_makefile()
