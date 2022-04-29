@@ -9,7 +9,7 @@ function! s:generate_makefile()
 	execute "normal! oLIBFT_DIR = libft"
 	execute "normal! oLIBFT_H = libft/libft.h"
 	execute "normal! oLIBFT_REPO = https://github.com/adesgran/libft_extended.git\n"
-	execute "normal! oINCLUDES = -I ${LIBFT_DIR} -I\n"
+	execute "normal! oINCLUDES = -I ${LIBFT_DIR} -I .\n"
 	execute "normal! o.c.o:"
 	execute "normal! o\t${CC} ${C_FLAGS} ${INCLUDES} -c $< -o ${<:.c=.o}\n"
 	execute "normal! oall: ${LIBFT} ${NAME}\n"
