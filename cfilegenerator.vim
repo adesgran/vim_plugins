@@ -19,8 +19,8 @@ function! s:helloworld()
 endfunction
 
 function! s:generate_c()
-	let hfile = get(readdir('.', {n -> n =~ '.h$'}), 0) 
-	execute "normal! i#include <" . hfile . ">"
+	let hfile = get(readdir('.', {n -> n =~ '\.h$'}), 0) 
+	execute "normal! i#include <" . hfile . ">\n\n"
 endfunction
 
 command! Generatemain call s:generate_main ()
@@ -28,7 +28,7 @@ map <F2> :Generatemain<CR>
 
 augroup CFiles
 	autocmd!
+	autocmd BufNewFile *.c call <SID>generate_c()
 	autocmd BufNewFile main.c call <SID>generate_main()
 	autocmd BufNewFile helloworld.c call <SID>helloworld()
-	autocmd BufNewFile *.c call <SID>generate_c()
 augroup END
