@@ -11,7 +11,7 @@ function! s:generate_cpp()
 		execute "normal! o" . filename . "::~" . filename . "(void)"
 		execute "normal! o{"
 		execute "normal! o"
-		execute "normal! o}"
+		execute "normal! o};"
 		execute "normal! o"
 	endif
 endfunction
