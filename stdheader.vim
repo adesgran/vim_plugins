@@ -146,5 +146,8 @@ endfunction
 " Bind command and shortcut
 command! Stdheader call s:stdheader ()
 autocmd BufNewFile *.c call s:stdheader ()
+autocmd BufNewFile *.h call s:stdheader ()
+autocmd BufNewFile *.cpp call s:stdheader ()
+autocmd BufNewFile *.hpp call s:stdheader ()
 map <F1> :Stdheader<CR>
 autocmd BufWritePre * call s:update ()
