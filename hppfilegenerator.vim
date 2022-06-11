@@ -7,6 +7,7 @@ function! s:generate_hpp()
   execute "normal! opublic:"
   execute "normal! o" . classname ."( void );"
   execute "normal! o~" . classname ."( void );"
+  execute "normal! o"
   execute "normal! xi"
   execute "normal! o"
   execute "normal! oprivate:"
