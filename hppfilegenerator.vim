@@ -3,6 +3,9 @@ function! s:generate_hpp()
   let classname = expand("%:r")
   execute "normal! i#ifndef " . gatename
   execute "normal! o# define " . gatename . "\n"
+  execute "normal! o# define DEBUG 1\n"
+  execute "normal! o# include <iostream>"
+  execute "normal! o# include <string>\n"
   execute "normal! oclass " . classname ." {"
   execute "normal! opublic:"
   execute "normal! o" . classname ."( void );"
